@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Fútbol Femenino — Guía de Competiciones 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #00E676;
+  --verde-oscuro: #00C853;
+  --rosa: #FF4081;
+  --amarillo: #FFD740;
+  --azul: #00B0FF;
+  --violeta: #B388FF;
+  --naranja: #FF6D00;
+  --negro: #080C0A;
+  --gris-oscuro: #0E1512;
+  --gris-medio: #161E1A;
+  --gris-claro: #232E27;
+  --gris-borde: #2E3D33;
+  --texto: #E8F0EB;
+  --texto-suave: #7A9485;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--negro);
+  color: var(--texto);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 60%, rgba(0,230,118,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(255,64,129,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 55% 90%, rgba(0,176,255,.05) 0%, transparent 50%),
+    var(--negro);
+  overflow: hidden;
+}
+
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 64px, rgba(255,255,255,.012) 64px, rgba(255,255,255,.012) 65px),
+    repeating-linear-gradient(90deg,  transparent, transparent 64px, rgba(255,255,255,.012) 64px, rgba(255,255,255,.012) 65px);
+  pointer-events:none;
+}
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  background: rgba(0,230,118,.12);
+  border: 1px solid rgba(0,230,118,.35);
+  color: var(--verde);
+  font-family:'Space Mono',monospace;
+  font-size:11px; letter-spacing:3px;
+  padding:8px 20px; border-radius:100px;
+  margin-bottom:36px;
+  animation: fadeDown .7s ease both;
+}
+
+.hero h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size: clamp(80px, 13vw, 168px);
+  line-height:.88;
+  letter-spacing:-1px;
+  margin-bottom:28px;
+  animation: fadeDown .7s .1s ease both;
+}
+.hero h1 em { color:var(--verde); font-style:normal; }
+.hero h1 span { color:var(--rosa); }
+
+.hero-desc {
+  font-size:17px; font-weight:300;
+  color:var(--texto-suave);
+  max-width:500px; line-height:1.75;
+  margin-bottom:56px;
+  animation: fadeDown .7s .2s ease both;
+}
+
+.hero-stats {
+  display:flex; gap:48px; flex-wrap:wrap; justify-content:center;
+  animation: fadeDown .7s .3s ease both;
+}
+.stat { text-align:center; }
+.stat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:56px; line-height:1;
+  color:var(--verde);
+}
+.stat-label {
+  font-size:11px; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--texto-suave);
+  margin-top:4px;
+}
+
+.scroll-cue {
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+  color:var(--texto-suave); font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  animation: fadeDown 1s .7s ease both;
+  padding-top: 32px;
+}
+.scroll-line {
+  width:1px; height:44px;
+  background:linear-gradient(to bottom, var(--verde), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+/* ── NAV STICKY ── */
+.nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(8,12,10,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--gris-borde);
+  padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:56px;
+}
+.nav-brand {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px; letter-spacing:2px;
+  color:var(--verde);
+}
+.nav-links { display:flex; gap:4px; }
+.nav-link {
+  background:none; border:none;
+  color:var(--texto-suave); font-family:'DM Sans',sans-serif;
+  font-size:13px; padding:6px 14px; border-radius:8px;
+  cursor:pointer; transition:.2s;
+}
+.nav-link:hover { color:var(--texto); background:rgba(255,255,255,.05); }
+
+/* ── LAYOUT ── */
+.section { padding:80px 24px; max-width:1280px; margin:0 auto; }
+.section-eyebrow {
+  font-family:'Space Mono',monospace; font-size:10px;
+  letter-spacing:3px; color:var(--verde); text-transform:uppercase;
+  margin-bottom:10px;
+  display:flex; align-items:center; gap:12px;
+}
+.section-eyebrow::after {
+  content:''; flex:1; height:1px;
+  background:rgba(0,230,118,.2); max-width:48px;
+}
+.section-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,6vw,76px);
+  line-height:.95; margin-bottom:48px;
+}
+.section-title em { color:var(--verde); font-style:normal; }
+
+.divider {
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--gris-borde), transparent);
+  margin:0 24px;
+}
+
+/* ── BUSCADOR ── */
+.search-wrap {
+  position:relative; max-width:480px; margin-bottom:32px;
+}
+.search-input {
+  width:100%;
+  background:var(--gris-medio);
+  border:1px solid var(--gris-borde);
+  color:var(--texto);
+  font-family:'DM Sans',sans-serif; font-size:14px;
+  padding:12px 44px 12px 16px;
+  border-radius:12px; outline:none;
+  transition:border-color .2s;
+}
+.search-input::placeholder { color:var(--texto-suave); }
+.search-input:focus { border-color:rgba(0,230,118,.4); }
+.search-icon {
+  position:absolute; right:14px; top:50%; transform:translateY(-50%);
+  color:var(--texto-suave); font-size:16px; pointer-events:none;
+}
+
+/* ── FILTROS ── */
+.filtros-bloque { margin-bottom:40px; }
+.filtros-label {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--texto-suave); margin-bottom:10px;
+  font-family:'Space Mono',monospace;
+}
+.filtros-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.filtro-btn {
+  background:var(--gris-medio);
+  border:1px solid var(--gris-borde);
+  color:var(--texto-suave);
+  padding:7px 18px; border-radius:100px;
+  font-size:13px; font-family:'DM Sans',sans-serif;
+  cursor:pointer; transition:all .2s;
+  white-space:nowrap;
+}
+.filtro-btn:hover { color:var(--texto); border-color:rgba(255,255,255,.15); }
+.filtro-btn.active {
+  background:var(--verde); border-color:var(--verde);
+  color:var(--negro); font-weight:600;
+}
+.filtro-btn.active-rosa {
+  background:var(--rosa); border-color:var(--rosa);
+  color:#fff; font-weight:600;
+}
+.filtro-btn.active-azul {
+  background:var(--azul); border-color:var(--azul);
+  color:var(--negro); font-weight:600;
+}
+
+/* ── GRID CARDS ── */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(340px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:var(--gris-medio);
+  border:1px solid var(--gris-borde);
+  border-radius:18px; padding:26px;
+  position:relative; overflow:hidden;
+  transition:transform .3s, border-color .3s, box-shadow .3s;
+}
+.card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(0,230,118,.25);
+  box-shadow:0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(0,230,118,.08);
+}
+.card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:3px;
+  background:var(--card-color, var(--verde));
+  border-radius:18px 18px 0 0;
+}
+
+.card-top {
+  display:flex; justify-content:space-between;
+  align-items:flex-start; gap:10px; margin-bottom:14px;
+}
+.card-region {
+  font-family:'Space Mono',monospace;
+  font-size:9px; letter-spacing:2px;
+  color:var(--texto-suave); text-transform:uppercase;
+  background:rgba(255,255,255,.04);
+  padding:4px 10px; border-radius:6px;
+  white-space:nowrap; flex-shrink:0;
+}
+.card-badges { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+
+.badge {
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:10px; font-weight:700; letter-spacing:.8px;
+  text-transform:uppercase; padding:3px 9px; border-radius:6px;
+}
+.badge-en-curso {
+  background:rgba(0,230,118,.12); color:var(--verde);
+}
+.badge-en-curso::before {
+  content:''; width:5px; height:5px; border-radius:50%;
+  background:currentColor; animation:pulse 1.5s infinite;
+}
+.badge-no-iniciada {
+  background:rgba(255,215,64,.1); color:var(--amarillo);
+}
+.badge-no-iniciada::before {
+  content:''; width:5px; height:5px; border-radius:50%;
+  background:currentColor;
+}
+.badge-clubes { background:rgba(0,176,255,.1); color:var(--azul); }
+.badge-selecciones { background:rgba(179,136,255,.1); color:var(--violeta); }
+
+.card h3 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:21px; letter-spacing:.5px; line-height:1.1;
+  margin-bottom:10px;
+}
+.card-desc {
+  font-size:12px; color:var(--texto-suave);
+  line-height:1.65; margin-bottom:18px;
+  font-weight:300;
+}
+
+/* plataformas */
+.plats { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:16px; }
+.plat {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:11px; font-weight:500; padding:3px 10px;
+  border-radius:6px;
+}
+.plat-gratis {
+  background:rgba(0,230,118,.1); color:var(--verde);
+  border:1px solid rgba(0,230,118,.2);
+}
+.plat-pago {
+  background:rgba(255,64,129,.08); color:var(--rosa);
+  border:1px solid rgba(255,64,129,.18);
+}
+
+/* fechas */
+.card-fechas {
+  font-size:11px; color:var(--texto-suave);
+  font-family:'Space Mono',monospace;
+  margin-bottom:18px;
+  padding:10px 12px;
+  background:rgba(255,255,255,.025);
+  border-radius:8px;
+}
+.card-fechas span { color:var(--texto); }
+
+/* links de acción */
+.card-links {
+  display:flex; gap:8px; flex-wrap:wrap;
+  padding-top:14px; border-top:1px solid var(--gris-borde);
+}
+.card-link {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--gris-borde);
+  color:var(--texto-suave); text-decoration:none;
+  font-size:11px; font-weight:600; letter-spacing:.5px;
+  padding:6px 12px; border-radius:8px;
+  transition:all .2s;
+}
+.card-link:hover {
+  background:rgba(0,230,118,.1);
+  border-color:rgba(0,230,118,.3);
+  color:var(--verde);
+}
+.card-link-icon { font-size:12px; }
+
+/* no resultados */
+.no-results {
+  grid-column:1/-1; text-align:center;
+  padding:60px 20px; color:var(--texto-suave);
+}
+.no-results-icon { font-size:48px; margin-bottom:16px; }
+.no-results h3 { font-family:'Bebas Neue',sans-serif; font-size:32px; margin-bottom:8px; color:var(--texto); }
+
+/* ── PLATAFORMAS ── */
+.plats-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+  gap:14px;
+}
+.plat-card {
+  background:var(--gris-medio);
+  border:1px solid var(--gris-borde);
+  border-radius:14px; padding:20px;
+  text-align:center; transition:all .2s;
+}
+.plat-card:hover { transform:translateY(-2px); border-color:rgba(0,230,118,.25); }
+.plat-card-icon { font-size:26px; margin-bottom:8px; }
+.plat-card-name { font-weight:600; font-size:13px; margin-bottom:4px; }
+.plat-card-detail { font-size:11px; color:var(--texto-suave); line-height:1.5; }
+.plat-gratis-card .plat-card-name { color:var(--verde); }
+.plat-pago-card .plat-card-name { color:var(--rosa); }
+
+/* ── TABLA JUGADORAS ── */
+.tabla-wrap {
+  overflow-x:auto;
+  border-radius:16px;
+  border:1px solid var(--gris-borde);
+}
+.tabla-jugadoras {
+  width:100%; border-collapse:collapse;
+  font-size:13px;
+}
+.tabla-jugadoras thead {
+  background:var(--gris-claro);
+}
+.tabla-jugadoras th {
+  padding:14px 20px; text-align:left;
+  font-family:'Space Mono',monospace;
+  font-size:9px; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--texto-suave);
+  font-weight:400;
+  white-space:nowrap;
+}
+.tabla-jugadoras th:first-child { border-radius:16px 0 0 0; }
+.tabla-jugadoras th:last-child { border-radius:0 16px 0 0; }
+
+.tabla-jugadoras tbody tr {
+  border-top:1px solid var(--gris-borde);
+  transition:background .15s;
+}
+.tabla-jugadoras tbody tr:hover { background:rgba(0,230,118,.04); }
+.tabla-jugadoras td {
+  padding:14px 20px; vertical-align:middle;
+}
+
+.jugadora-nombre {
+  font-weight:600; font-size:14px;
+}
+.club-link {
+  display:inline-flex; align-items:center; gap:6px;
+  color:var(--azul); text-decoration:none;
+  font-weight:500; font-size:13px;
+  transition:color .2s;
+}
+.club-link:hover { color:var(--verde); }
+.club-link-icon { font-size:12px; }
+
+.comp-tag {
+  display:inline-block;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--gris-borde);
+  border-radius:6px; padding:3px 10px;
+  font-size:11px; color:var(--texto-suave);
+  white-space:nowrap;
+}
+
+.pais-tag {
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:12px; color:var(--texto-suave);
+}
+
+/* search tabla */
+.tabla-search-wrap { max-width:360px; margin-bottom:28px; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--gris-oscuro);
+  border-top:1px solid var(--gris-borde);
+  padding:56px 24px; text-align:center;
+}
+.footer-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:36px; letter-spacing:2px; margin-bottom:10px;
+}
+.footer-title em { color:var(--verde); font-style:normal; }
+.footer-sub {
+  color:var(--texto-suave); font-size:14px; font-weight:300;
+  max-width:400px; margin:0 auto 28px; line-height:1.7;
+}
+.footer-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--verde); color:var(--negro);
+  font-weight:700; font-size:13px; letter-spacing:1px;
+  padding:13px 32px; border-radius:100px;
+  text-decoration:none; transition:all .2s;
+}
+.footer-cta:hover { background:var(--verde-oscuro); transform:scale(1.03); }
+.footer-copy {
+  margin-top:44px; font-size:11px;
+  color:var(--texto-suave); letter-spacing:1.5px;
+}
+
+/* ── ANIMACIONES ── */
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.4; transform:scale(.65); }
+}
+@keyframes scrollPulse {
+  0%,100% { opacity:.25; }
+  50% { opacity:1; }
+}
+
+.fade-up { animation: fadeUp .5s ease both; }
+
+/* ── HIDDEN ── */
+.hidden { display:none !important; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .grid { grid-template-columns:1fr; }
+  .hero-stats { gap:28px; }
+  .stat-num { font-size:44px; }
+  .nav-links { display:none; }
+  .plats-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">⚽ DATA FÚTBOL FEMENINO</div>
+  <div class="nav-links">
+    <button class="nav-link" onclick="document.getElementById('competiciones').scrollIntoView({behavior:'smooth'})">Competiciones</button>
+    <button class="nav-link" onclick="document.getElementById('plataformas').scrollIntoView({behavior:'smooth'})">Dónde ver</button>
+    <button class="nav-link" onclick="document.getElementById('jugadoras').scrollIntoView({behavior:'smooth'})">Selección Argentina</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">⚡ Temporada 2025 / 2026</div>
+  <h1><em>DATA</em><br><span>FÚTBOL FEMENINO</span></h1>
+  <p class="hero-desc">Guía completa de competiciones internacionales: dónde verlas, cuándo juegan y todo lo que necesitás saber.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">23</div><div class="stat-label">Competiciones</div></div>
+    <div class="stat"><div class="stat-num">17</div><div class="stat-label">Entre clubes</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Entre naciones</div></div>
+    <div class="stat"><div class="stat-num">25</div><div class="stat-label">Jugadoras ARG</div></div>
+  </div>
+  <div class="scroll-cue">
+    <span>Explorá</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- COMPETICIONES -->
+<section class="section" id="competiciones">
+  <div class="section-eyebrow">Competiciones</div>
+  <div class="section-title">TODAS LAS <em>LIGAS</em></div>
+
+  <!-- Buscador -->
+  <div class="search-wrap">
+    <input class="search-input" id="searchComp" type="text" placeholder="Buscar competición..." oninput="aplicarFiltros()">
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <!-- Filtros -->
+  <div class="filtros-bloque">
+    <div class="filtros-label">Estado</div>
+    <div class="filtros-row" id="filtros-estado">
+      <button class="filtro-btn active" data-grupo="estado" data-val="todas" onclick="setFiltro('estado','todas',this)">Todas</button>
+      <button class="filtro-btn" data-grupo="estado" data-val="en-curso" onclick="setFiltro('estado','en-curso',this)">🟢 En curso</button>
+      <button class="filtro-btn" data-grupo="estado" data-val="no-iniciada" onclick="setFiltro('estado','no-iniciada',this)">🟡 No iniciadas</button>
+    </div>
+
+    <div class="filtros-label">Plataforma</div>
+    <div class="filtros-row">
+      <button class="filtro-btn active" data-grupo="plat" data-val="todas" onclick="setFiltro('plat','todas',this)">Todas</button>
+      <button class="filtro-btn" data-grupo="plat" data-val="gratis" onclick="setFiltro('plat','gratis',this)">✅ Con plataforma gratuita</button>
+      <button class="filtro-btn" data-grupo="plat" data-val="pago" onclick="setFiltro('plat','pago',this)">💰 Solo de pago</button>
+    </div>
+
+    <div class="filtros-label">Región</div>
+    <div class="filtros-row">
+      <button class="filtro-btn active" data-grupo="region" data-val="todas" onclick="setFiltro('region','todas',this)">Todas</button>
+      <button class="filtro-btn" data-grupo="region" data-val="arg" onclick="setFiltro('region','arg',this)">🇦🇷 Argentina</button>
+      <button class="filtro-btn" data-grupo="region" data-val="conmebol" onclick="setFiltro('region','conmebol',this)">🌎 CONMEBOL</button>
+      <button class="filtro-btn" data-grupo="region" data-val="concacaf" onclick="setFiltro('region','concacaf',this)">🌎 CONCACAF</button>
+      <button class="filtro-btn" data-grupo="region" data-val="norteamerica" onclick="setFiltro('region','norteamerica',this)">🇺🇸 Norte América</button>
+      <button class="filtro-btn" data-grupo="region" data-val="uefa" onclick="setFiltro('region','uefa',this)">🌍 UEFA</button>
+      <button class="filtro-btn" data-grupo="region" data-val="brasil" onclick="setFiltro('region','brasil',this)">🇧🇷 Brasil</button>
+      <button class="filtro-btn" data-grupo="region" data-val="portugal" onclick="setFiltro('region','portugal',this)">🇵🇹 Portugal</button>
+      <button class="filtro-btn" data-grupo="region" data-val="internacional" onclick="setFiltro('region','internacional',this)">🌐 Internacional</button>
+    </div>
+
+    <div class="filtros-label">Tipo</div>
+    <div class="filtros-row">
+      <button class="filtro-btn active" data-grupo="tipo" data-val="todas" onclick="setFiltro('tipo','todas',this)">Todas</button>
+      <button class="filtro-btn" data-grupo="tipo" data-val="clubes" onclick="setFiltro('tipo','clubes',this)">🏟️ Clubes</button>
+      <button class="filtro-btn" data-grupo="tipo" data-val="selecciones" onclick="setFiltro('tipo','selecciones',this)">🏳️ Selecciones</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid-comp">
+
+    <!-- 1. TORNEO APERTURA -->
+    <div class="card fade-up" style="--card-color:#74B9FF"
+      data-nombre="torneo apertura primera división argentina afa"
+      data-estado="en-curso" data-plat="gratis" data-region="arg" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇦🇷 Argentina</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.afa.com.ar/Sitio/posts/categories/futbol-femenino" target="_blank" style="color:inherit;text-decoration:none;">Torneo Apertura 2026 — Primera División</a></h3>
+      <p class="card-desc">El torneo más importante del fútbol femenino argentino, organizado por la AFA.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">LPF Play ✓</span>
+        <span class="plat plat-pago">TNT Sports 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>13 Mar 2026 → 19 Jul 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.afa.com.ar/Sitio/posts/categories/futbol-femenino" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.lpfplay.com/page/6952861ef804a167daf36323" target="_blank"><span class="card-link-icon">▶️</span> LPF Play</a>
+        <a class="card-link" href="https://www.afa.com.ar/es/pages/estadisticas-de-los-torneos-de-futbol-femenino" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.tycsports.com/estadisticas/primera-division-futbol-femenino.html" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 2. FUTSAL PRIMERA A -->
+    <div class="card fade-up" style="--card-color:#00B0FF"
+      data-nombre="futsal primera a femenino argentina afa"
+      data-estado="en-curso" data-plat="gratis" data-region="arg" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇦🇷 Argentina</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.afa.com.ar/Sitio/posts/categories/futsal" target="_blank" style="color:inherit;text-decoration:none;">Futsal Primera A Femenino</a></h3>
+      <p class="card-desc">La Primera División A de Futsal Femenino es la categoría máxima del fútbol de salón femenino en Argentina, organizada por la AFA. Se transmiten solo 2 partidos por fecha.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">LPF Play ✓</span>
+      </div>
+      <div class="card-fechas">📅 <span>19 Mar 2026 → A definir</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.afa.com.ar/Sitio/posts/categories/futsal" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.lpfplay.com/page/69b03be9d49dac76b19120a5" target="_blank"><span class="card-link-icon">▶️</span> LPF Play</a>
+        <a class="card-link" href="https://www.instagram.com/afafutsal.oficial/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+      </div>
+    </div>
+
+    <!-- 3. LIBERTADORES -->
+    <div class="card fade-up" style="--card-color:#FFC300"
+      data-nombre="copa libertadores femenina conmebol"
+      data-estado="no-iniciada" data-plat="pago" data-region="conmebol" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🌎 CONMEBOL</span>
+        <div class="card-badges">
+          <span class="badge badge-no-iniciada">No iniciada</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.conmebol.com/conmebol-libertadores-femenina/" target="_blank" style="color:inherit;text-decoration:none;">Copa Libertadores Femenina 2026</a></h3>
+      <p class="card-desc">El torneo de clubes más prestigioso de Sudamérica. La joya de la corona continental.</p>
+      <div class="plats"><span class="plat plat-pago">Plataforma a definir</span></div>
+      <div class="card-fechas">📅 <span>15 Oct → 31 Oct 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.conmebol.com/conmebol-libertadores-femenina/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.instagram.com/libertadoresfem/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+      </div>
+    </div>
+
+    <!-- 3. LIGA DE NACIONES CONMEBOL -->
+    <div class="card fade-up" style="--card-color:#FFC300"
+      data-nombre="liga de naciones conmebol femenina"
+      data-estado="en-curso" data-plat="gratis" data-region="conmebol" data-tipo="selecciones">
+      <div class="card-top">
+        <span class="card-region">🌎 CONMEBOL</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-selecciones">Selecciones</span>
+        </div>
+      </div>
+      <h3><a href="https://www.conmebol.com/conmebol-liga-naciones-fem/" target="_blank" style="color:inherit;text-decoration:none;">Liga de Naciones CONMEBOL Femenina</a></h3>
+      <p class="card-desc">Sistema clasificatorio para la Copa Mundial Femenina FIFA 2027 (Brasil). En juego: el boleto al mundial.</p>
+      <div class="plats"><span class="plat plat-gratis">AFA Estudio ✓</span></div>
+      <div class="card-fechas">📅 <span>24 Oct 2025 → 9 Jun 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.conmebol.com/conmebol-liga-naciones-fem/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@afaestudio/streams" target="_blank"><span class="card-link-icon">▶️</span> AFA Estudio</a>
+        <a class="card-link" href="https://www.conmebol.com/conmebol-liga-naciones-femenina-tabla-de-posiciones/" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://cdn.conmebol.com/wp-content/uploads/2025/10/Fixture-LNF-2025.pdf" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 4. COPA AMERICA CONMEBOL -->
+    <div class="card fade-up" style="--card-color:#E17055"
+      data-nombre="copa america femenina conmebol"
+      data-estado="no-iniciada" data-plat="pago" data-region="conmebol" data-tipo="selecciones">
+      <div class="card-top">
+        <span class="card-region">🌎 CONMEBOL</span>
+        <div class="card-badges">
+          <span class="badge badge-no-iniciada">No iniciada</span>
+          <span class="badge badge-selecciones">Selecciones</span>
+        </div>
+      </div>
+      <h3><a href="https://www.conmebol.com/conmebol-copa-america-femenina/" target="_blank" style="color:inherit;text-decoration:none;">Copa América Femenina</a></h3>
+      <p class="card-desc">El campeonato continental de selecciones de Sudamérica. Clasificatorio para el Mundial.</p>
+      <div class="plats"><span class="plat plat-pago">Plataforma a definir</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.conmebol.com/conmebol-copa-america-femenina/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+      </div>
+    </div>
+
+    <!-- 5. NWSL -->
+    <div class="card fade-up" style="--card-color:#FF4081"
+      data-nombre="nwsl national womens soccer league eeuu"
+      data-estado="en-curso" data-plat="gratis" data-region="norteamerica" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇺🇸 Norte América</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.nwslsoccer.com/" target="_blank" style="color:inherit;text-decoration:none;">NWSL — National Women's Soccer League 2026</a></h3>
+      <p class="card-desc">La máxima categoría del fútbol profesional femenino en Estados Unidos.</p>
+      <div class="plats"><span class="plat plat-gratis">NWSL+ ✓</span></div>
+      <div class="card-fechas">📅 <span>20 Feb → 21 Nov 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.nwslsoccer.com/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://plus.nwslsoccer.com/home" target="_blank"><span class="card-link-icon">▶️</span> NWSL+</a>
+        <a class="card-link" href="https://www.instagram.com/nwsl/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.nwslsoccer.com/standings/index" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.nwslsoccer.com/schedule/regular-season" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 6. USL SUPER LEAGUE -->
+    <div class="card fade-up" style="--card-color:#A29BFE"
+      data-nombre="gainbridge super league usl eeuu"
+      data-estado="en-curso" data-plat="gratis" data-region="norteamerica" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇺🇸 Norte América</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.gainbridgesuperleague.com/" target="_blank" style="color:inherit;text-decoration:none;">Gainbridge Super League / USL Super League</a></h3>
+      <p class="card-desc">Liga profesional femenina que sigue el calendario internacional. No usa sistema de draft.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">YouTube ✓</span>
+        <span class="plat plat-pago">Disney+ 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>23 Ago 2025 → 30 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.gainbridgesuperleague.com/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@gainbridgesuperleague/streams" target="_blank"><span class="card-link-icon">▶️</span> YouTube</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.instagram.com/gainbridgesuperleague" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.gainbridgesuperleague.com/league-standings/" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.gainbridgesuperleague.com/league-schedule/" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 7. WSL -->
+    <div class="card fade-up" style="--card-color:#FF4081"
+      data-nombre="barclays womens super league wsl inglaterra"
+      data-estado="en-curso" data-plat="gratis" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.wslfootball.com/" target="_blank" style="color:inherit;text-decoration:none;">Barclays Women's Super League 2025/26</a></h3>
+      <p class="card-desc">La máxima categoría del fútbol profesional femenino en Inglaterra. Una de las mejores ligas del mundo.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">YouTube ✓</span>
+        <span class="plat plat-pago">Disney+ 💰</span>
+        <span class="plat plat-pago">ESPN 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>6 Sep 2025 → 17 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.wslfootball.com/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@BarclaysWSL" target="_blank"><span class="card-link-icon">▶️</span> YouTube WSL</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.instagram.com/barclayswsl/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.wslfootball.com/standings/wsl" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.wslfootball.com/fixtures/wsl" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 8. WSL 2 -->
+    <div class="card fade-up" style="--card-color:#FF6B9D"
+      data-nombre="barclays womens super league 2 wsl2 inglaterra"
+      data-estado="en-curso" data-plat="gratis" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.wslfootball.com/" target="_blank" style="color:inherit;text-decoration:none;">Barclays Women's Super League 2</a></h3>
+      <p class="card-desc">Segunda división del fútbol femenino inglés. Ascenso directo a la élite.</p>
+      <div class="plats"><span class="plat plat-gratis">YouTube ✓</span></div>
+      <div class="card-fechas">📅 <span>6 Sep 2025 → 3 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.wslfootball.com/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@BarclaysWSL2" target="_blank"><span class="card-link-icon">▶️</span> YouTube WSL2</a>
+        <a class="card-link" href="https://www.instagram.com/barclayswsl2/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.wslfootball.com/standings/wsl2" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.wslfootball.com/fixtures/wsl2" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 9. SUBWAY LEAGUE CUP -->
+    <div class="card fade-up" style="--card-color:#FDCB6E"
+      data-nombre="subway womens league cup inglaterra"
+      data-estado="en-curso" data-plat="gratis" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.wslfootball.com/final" target="_blank" style="color:inherit;text-decoration:none;">Subway Women's League Cup</a></h3>
+      <p class="card-desc">Copa de la liga femenina inglesa entre los equipos de la WSL y la WSL 2.</p>
+      <div class="plats"><span class="plat plat-gratis">YouTube ✓</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.wslfootball.com/final" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@BarclaysWSL/streams" target="_blank"><span class="card-link-icon">▶️</span> YouTube WSL</a>
+        <a class="card-link" href="https://www.instagram.com/barclayswsl/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.wslfootball.com/fixtures/league-cup" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 10. FA CUP -->
+    <div class="card fade-up" style="--card-color:#E84393"
+      data-nombre="adobe womens fa cup inglaterra"
+      data-estado="en-curso" data-plat="gratis" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.thefa.com/competitions/the-womens-fa-cup" target="_blank" style="color:inherit;text-decoration:none;">Adobe Women's FA Cup 2025/26</a></h3>
+      <p class="card-desc">La competición de fútbol femenino más antigua de Inglaterra. Eliminación directa desde las ligas regionales hasta la élite.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">YouTube ✓</span>
+        <span class="plat plat-pago">Disney+ 💰</span>
+        <span class="plat plat-pago">ESPN 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>24 Ago 2025 → 31 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.thefa.com/competitions/the-womens-fa-cup" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@AdobeWomensFACup/streams" target="_blank"><span class="card-link-icon">▶️</span> YouTube FA Cup</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.instagram.com/adobewomensfacup/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.thefa.com/competitions/the-womens-fa-cup/results" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.thefa.com/competitions/the-womens-fa-cup/fixtures" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 11. LIGA F -->
+    <div class="card fade-up" style="--card-color:#FF6348"
+      data-nombre="liga f moeve españa primera división femenina"
+      data-estado="en-curso" data-plat="gratis" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇪🇸 España</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://ligaf.es/" target="_blank" style="color:inherit;text-decoration:none;">Liga F Moeve 2025/26</a></h3>
+      <p class="card-desc">La máxima categoría del fútbol femenino profesional en España. Una de las más competitivas del mundo.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">DAZN ✓</span>
+        <span class="plat plat-gratis">DAZN YouTube ✓</span>
+      </div>
+      <div class="card-fechas">📅 <span>30 Ago 2025 → 31 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://ligaf.es/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.dazn.com/es-AR/welcome" target="_blank"><span class="card-link-icon">▶️</span> DAZN</a>
+        <a class="card-link" href="https://www.youtube.com/@DAZNWomensFootball/streams" target="_blank"><span class="card-link-icon">▶️</span> YouTube DAZN</a>
+        <a class="card-link" href="https://www.instagram.com/ligaf/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://ligaf.es/clasificacion/primera_division_femenina" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://ligaf.es/calendario/primera_division_femenina" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 12. COPA DE LA REINA -->
+    <div class="card fade-up" style="--card-color:#FF8C42"
+      data-nombre="copa de la reina españa femenina"
+      data-estado="en-curso" data-plat="gratis" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇪🇸 España</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://ligaf.es/resultados/copa_de_la_reina" target="_blank" style="color:inherit;text-decoration:none;">Copa de la Reina 2025/26</a></h3>
+      <p class="card-desc">El torneo de eliminación directa más antiguo del fútbol femenino español.</p>
+      <div class="plats"><span class="plat plat-gratis">YouTube ✓</span></div>
+      <div class="card-fechas">📅 <span>10 Sep 2025 → 16 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://ligaf.es/resultados/copa_de_la_reina" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@RFEFutbol/search" target="_blank"><span class="card-link-icon">▶️</span> YouTube RFEF</a>
+        <a class="card-link" href="https://ligaf.es/resultados/copa_de_la_reina" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://ligaf.es/calendario/copa_de_la_reina" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 13. UEFA CHAMPIONS -->
+    <div class="card fade-up" style="--card-color:#00B0FF"
+      data-nombre="uefa womens champions league europa"
+      data-estado="en-curso" data-plat="pago" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🌍 UEFA</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://es.uefa.com/womenschampionsleague/" target="_blank" style="color:inherit;text-decoration:none;">UEFA Women's Champions League</a></h3>
+      <p class="card-desc">La competición de clubes más importante de Europa. Lo mejor del continente en un solo torneo.</p>
+      <div class="plats">
+        <span class="plat plat-pago">Disney+ 💰</span>
+        <span class="plat plat-pago">ESPN 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>30 Jul 2025 → 23 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://es.uefa.com/womenschampionsleague/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.instagram.com/wchampionsleague/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://es.uefa.com/womenschampionsleague/fixtures-results/bracket/" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://es.uefa.com/womenschampionsleague/fixtures-results/bracket/" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 14. UEFA EUROPA CUP -->
+    <div class="card fade-up" style="--card-color:#48CFAD"
+      data-nombre="uefa womens europa cup"
+      data-estado="en-curso" data-plat="pago" data-region="uefa" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🌍 UEFA</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://es.uefa.com/womenseuropacup/" target="_blank" style="color:inherit;text-decoration:none;">UEFA Women's Europa Cup 2025/26</a></h3>
+      <p class="card-desc">La nueva competición secundaria de clubes en Europa, estrenada esta temporada.</p>
+      <div class="plats"><span class="plat plat-pago">Sin dato desde Argentina</span></div>
+      <div class="card-fechas">📅 <span>10 Sep 2025 → 3 May 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://es.uefa.com/womenseuropacup/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.instagram.com/weuropacup/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://es.uefa.com/womenseuropacup/fixtures-results/bracket/" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://es.uefa.com/womenseuropacup/fixtures-results/bracket/" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 15. WORLD SEVENS -->
+    <div class="card fade-up" style="--card-color:#55EFC4"
+      data-nombre="world sevens internacional fútbol femenino"
+      data-estado="en-curso" data-plat="pago" data-region="internacional" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🌐 Internacional</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.worldsevensfootball.com/" target="_blank" style="color:inherit;text-decoration:none;">World Sevens Football</a></h3>
+      <p class="card-desc">Competición internacional de fútbol femenino en formato de 7 jugadoras por equipo.</p>
+      <div class="plats"><span class="plat plat-pago">Plataforma a definir</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.worldsevensfootball.com/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.instagram.com/worldsevens_/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+      </div>
+    </div>
+
+    <!-- 16. BRASILEIRAO -->
+    <div class="card fade-up" style="--card-color:#00E676"
+      data-nombre="brasileirao feminino a1 brasil"
+      data-estado="en-curso" data-plat="gratis" data-region="brasil" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇧🇷 Brasil</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.cbf.com.br/" target="_blank" style="color:inherit;text-decoration:none;">Brasileirão Feminino A1</a></h3>
+      <p class="card-desc">La liga más competitiva y prestigiosa de Sudamérica. Clasifica a la Copa Libertadores.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">YouTube CBF ✓</span>
+        <span class="plat plat-gratis">YouTube N Sports ✓</span>
+      </div>
+      <div class="card-fechas">📅 <span>15 Feb → 13 Sep 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.cbf.com.br/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/@brasil" target="_blank"><span class="card-link-icon">▶️</span> YouTube CBF</a>
+        <a class="card-link" href="https://www.youtube.com/@NSports" target="_blank"><span class="card-link-icon">▶️</span> YouTube N Sports</a>
+        <a class="card-link" href="https://www.instagram.com/brfeminino/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/feminino-a1/2026" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+      </div>
+    </div>
+
+    <!-- 17. LIGA BPI -->
+    <div class="card fade-up" style="--card-color:#E17055"
+      data-nombre="liga bpi portugal femenino"
+      data-estado="en-curso" data-plat="gratis" data-region="portugal" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇵🇹 Portugal</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.fpf.pt/pt/Competi%C3%A7%C3%B5es/Futebol-Feminino/Liga-BPI" target="_blank" style="color:inherit;text-decoration:none;">Liga BPI Feminina</a></h3>
+      <p class="card-desc">La primera división del fútbol femenino en Portugal.</p>
+      <div class="plats"><span class="plat plat-gratis">Canal 11 ✓</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.fpf.pt/pt/Competi%C3%A7%C3%B5es/Futebol-Feminino/Liga-BPI" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.canal11.pt/league/6895e8d8edc24d79917be835/" target="_blank"><span class="card-link-icon">▶️</span> Canal 11</a>
+        <a class="card-link" href="https://www.instagram.com/ligabpi/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://resultados.fpf.pt/Competition/Details?competitionId=23772&seasonId=105" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.fpf.pt/pt/Competi%C3%A7%C3%B5es/Futebol-Feminino/Liga-BPI/Agenda" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 18. LIGA FEMININA PLACARD -->
+    <div class="card fade-up" style="--card-color:#FDCB6E"
+      data-nombre="liga feminina placard portugal futsal"
+      data-estado="en-curso" data-plat="gratis" data-region="portugal" data-tipo="clubes">
+      <div class="card-top">
+        <span class="card-region">🇵🇹 Portugal</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-clubes">Clubes</span>
+        </div>
+      </div>
+      <h3><a href="https://www.fpf.pt/pt/competicoes/futsal/feminino/camp-nacional-futsal-feminino/entrada" target="_blank" style="color:inherit;text-decoration:none;">Liga Feminina Placard</a></h3>
+      <p class="card-desc">Campeonato Nacional de Futsal Femenino de Portugal.</p>
+      <div class="plats"><span class="plat plat-gratis">Canal 11 ✓</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.fpf.pt/pt/competicoes/futsal/feminino/camp-nacional-futsal-feminino/entrada" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.canal11.pt/league/6895e8e8edc24d79917be83b/" target="_blank"><span class="card-link-icon">▶️</span> Canal 11</a>
+        <a class="card-link" href="https://www.instagram.com/ligaplacard/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://resultados.fpf.pt/Competition/Details?competitionId=25258&seasonId=105" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.fpf.pt/pt/competicoes/futsal/feminino/camp-nacional-futsal-feminino/agenda" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 19. WOMENS EURO -->
+    <div class="card fade-up" style="--card-color:#6C5CE7"
+      data-nombre="uefa womens euro eurocopa femenina"
+      data-estado="no-iniciada" data-plat="pago" data-region="uefa" data-tipo="selecciones">
+      <div class="card-top">
+        <span class="card-region">🌍 UEFA</span>
+        <div class="card-badges">
+          <span class="badge badge-no-iniciada">No iniciada</span>
+          <span class="badge badge-selecciones">Selecciones</span>
+        </div>
+      </div>
+      <h3><a href="https://es.uefa.com/womenseuro/" target="_blank" style="color:inherit;text-decoration:none;">UEFA Women's Euro</a></h3>
+      <p class="card-desc">El campeonato europeo de selecciones femeninas. El torneo más importante del continente a nivel nacional.</p>
+      <div class="plats">
+        <span class="plat plat-pago">Disney+ 💰</span>
+        <span class="plat plat-pago">ESPN 💰</span>
+      </div>
+      <div class="card-links">
+        <a class="card-link" href="https://es.uefa.com/womenseuro/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.instagram.com/weuro2025/" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+      </div>
+    </div>
+
+    <!-- 20. EUROPEAN QUALIFIERS -->
+    <div class="card fade-up" style="--card-color:#B388FF"
+      data-nombre="womens european qualifiers clasificatorias europa"
+      data-estado="en-curso" data-plat="pago" data-region="uefa" data-tipo="selecciones">
+      <div class="card-top">
+        <span class="card-region">🌍 UEFA</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-selecciones">Selecciones</span>
+        </div>
+      </div>
+      <h3><a href="https://es.uefa.com/womenseuropeanqualifiers/" target="_blank" style="color:inherit;text-decoration:none;">Women's European Qualifiers</a></h3>
+      <p class="card-desc">Clasificatorias europeas para la Eurocopa y el Mundial. Tres ligas (A, B y C) según el ranking de la Nations League.</p>
+      <div class="plats">
+        <span class="plat plat-pago">Disney+ 💰</span>
+        <span class="plat plat-pago">ESPN 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>3 Mar 2026 → 5 Dic 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://es.uefa.com/womenseuropeanqualifiers/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.uefa.com/womenseuropeanqualifiers/standings/" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.uefa.com/womenseuropeanqualifiers/fixtures-results/#/d/2025-11-04" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <!-- 21. WOMENS NATIONS LEAGUE UEFA -->
+    <div class="card fade-up" style="--card-color:#74B9FF"
+      data-nombre="womens nations league uefa"
+      data-estado="no-iniciada" data-plat="pago" data-region="uefa" data-tipo="selecciones">
+      <div class="card-top">
+        <span class="card-region">🌍 UEFA</span>
+        <div class="card-badges">
+          <span class="badge badge-no-iniciada">No iniciada</span>
+          <span class="badge badge-selecciones">Selecciones</span>
+        </div>
+      </div>
+      <h3><a href="https://es.uefa.com/womensnationsleague/" target="_blank" style="color:inherit;text-decoration:none;">Women's Nations League UEFA</a></h3>
+      <p class="card-desc">Liga de naciones femenina de UEFA. Define el ranking para las clasificatorias europeas.</p>
+      <div class="plats">
+        <span class="plat plat-pago">Disney+ 💰</span>
+        <span class="plat plat-pago">ESPN 💰</span>
+      </div>
+      <div class="card-links">
+        <a class="card-link" href="https://es.uefa.com/womensnationsleague/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+      </div>
+    </div>
+
+    <!-- 22. CONCACAF -->
+    <div class="card fade-up" style="--card-color:#FDCB6E"
+      data-nombre="concacaf womens qualifiers clasificatorias"
+      data-estado="en-curso" data-plat="gratis" data-region="concacaf" data-tipo="selecciones">
+      <div class="card-top">
+        <span class="card-region">🌎 CONCACAF</span>
+        <div class="card-badges">
+          <span class="badge badge-en-curso">En curso</span>
+          <span class="badge badge-selecciones">Selecciones</span>
+        </div>
+      </div>
+      <h3><a href="https://www.concacaf.com/womens-championship/matches/" target="_blank" style="color:inherit;text-decoration:none;">CONCACAF Women's Qualifiers 2025/26</a></h3>
+      <p class="card-desc">Clasificatorias de la región CONCACAF para la Copa Mundial Femenina FIFA Brasil 2027.</p>
+      <div class="plats">
+        <span class="plat plat-gratis">YouTube ✓</span>
+        <span class="plat plat-pago">Disney+ 💰</span>
+      </div>
+      <div class="card-fechas">📅 <span>27 Nov 2025 → 18 Abr 2026</span></div>
+      <div class="card-links">
+        <a class="card-link" href="https://www.concacaf.com/womens-championship/matches/" target="_blank"><span class="card-link-icon">🌐</span> Web oficial</a>
+        <a class="card-link" href="https://www.youtube.com/concacaf/streams" target="_blank"><span class="card-link-icon">▶️</span> YouTube CONCACAF</a>
+        <a class="card-link" href="https://www.disneyplus.com/" target="_blank"><span class="card-link-icon">▶️</span> Disney+</a>
+        <a class="card-link" href="https://www.instagram.com/concacafw?igsh=MXdhdzh4YjVhbDV1dw%3D%3D" target="_blank"><span class="card-link-icon">📸</span> Redes</a>
+        <a class="card-link" href="https://www.concacaf.com/es/campeonato-femenino/classificacion/" target="_blank"><span class="card-link-icon">📊</span> Posiciones</a>
+        <a class="card-link" href="https://www.concacaf.com/es/campeonato-femenino/partidos/" target="_blank"><span class="card-link-icon">📅</span> Agenda</a>
+      </div>
+    </div>
+
+    <div class="no-results hidden" id="no-results">
+      <div class="no-results-icon">🔍</div>
+      <h3>Sin resultados</h3>
+      <p>Probá con otros filtros o términos de búsqueda.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PLATAFORMAS -->
+<section class="section" id="plataformas">
+  <div class="section-eyebrow">Dónde ver</div>
+  <div class="section-title">PLATAFORMAS <em>DE TRANSMISIÓN</em></div>
+  <div class="plats-grid">
+    <div class="plat-card plat-gratis-card">
+      <div class="plat-card-icon">▶️</div>
+      <div class="plat-card-name"><a href="https://www.youtube.com" target="_blank" style="color:inherit;text-decoration:none;">YouTube</a></div>
+      <div class="plat-card-detail">WSL, WSL2, FA Cup, Liga F, Brasileirão, USL, CONCACAF, League Cup, Copa de la Reina</div>
+    </div>
+    <div class="plat-card plat-gratis-card">
+      <div class="plat-card-icon">⚽</div>
+      <div class="plat-card-name"><a href="https://www.lpfplay.com/page/6952861ef804a167daf36323" target="_blank" style="color:inherit;text-decoration:none;">LPF Play</a></div>
+      <div class="plat-card-detail">Torneo Apertura AFA</div>
+    </div>
+    <div class="plat-card plat-gratis-card">
+      <div class="plat-card-icon">🎓</div>
+      <div class="plat-card-name"><a href="https://www.youtube.com/@afaestudio/streams" target="_blank" style="color:inherit;text-decoration:none;">AFA Estudio</a></div>
+      <div class="plat-card-detail">Liga de Naciones CONMEBOL</div>
+    </div>
+    <div class="plat-card plat-gratis-card">
+      <div class="plat-card-icon">🇺🇸</div>
+      <div class="plat-card-name"><a href="https://plus.nwslsoccer.com/home" target="_blank" style="color:inherit;text-decoration:none;">NWSL+</a></div>
+      <div class="plat-card-detail">National Women's Soccer League</div>
+    </div>
+    <div class="plat-card plat-gratis-card">
+      <div class="plat-card-icon">🎬</div>
+      <div class="plat-card-name"><a href="https://www.dazn.com/es-AR/welcome" target="_blank" style="color:inherit;text-decoration:none;">DAZN</a></div>
+      <div class="plat-card-detail">Liga F Moeve España</div>
+    </div>
+    <div class="plat-card plat-gratis-card">
+      <div class="plat-card-icon">📺</div>
+      <div class="plat-card-name"><a href="https://www.canal11.pt" target="_blank" style="color:inherit;text-decoration:none;">Canal 11</a></div>
+      <div class="plat-card-detail">Liga BPI y Liga Feminina Placard (Portugal)</div>
+    </div>
+    <div class="plat-card plat-pago-card">
+      <div class="plat-card-icon">🏰</div>
+      <div class="plat-card-name"><a href="https://www.disneyplus.com/" target="_blank" style="color:inherit;text-decoration:none;">Disney+ Premium</a></div>
+      <div class="plat-card-detail">WSL, FA Cup, UEFA Champions, Euros, CONCACAF, USL</div>
+    </div>
+    <div class="plat-card plat-pago-card">
+      <div class="plat-card-icon">📡</div>
+      <div class="plat-card-name">ESPN</div>
+      <div class="plat-card-detail">WSL, FA Cup, UEFA Champions, Euros, CONCACAF</div>
+    </div>
+    <div class="plat-card plat-pago-card">
+      <div class="plat-card-icon">🎙️</div>
+      <div class="plat-card-name">TNT Sports</div>
+      <div class="plat-card-detail">Torneo Apertura AFA</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- JUGADORAS -->
+<section class="section" id="jugadoras">
+  <div class="section-eyebrow">Selección Argentina</div>
+  <div class="section-title">JUGADORAS <em>ARGENTINAS</em></div>
+
+  <div class="search-wrap tabla-search-wrap">
+    <input class="search-input" id="searchJug" type="text" placeholder="Buscar jugadora, club o competición..." oninput="filtrarJugadoras()">
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <div class="tabla-wrap">
+    <table class="tabla-jugadoras" id="tabla-jug">
+      <thead>
+        <tr>
+          <th>Jugadora</th>
+          <th>Club</th>
+          <th>Competición</th>
+          <th>País</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-jug">
+        <tr data-search="solana pereyra san lorenzo torneo apertura argentina">
+          <td><span class="jugadora-nombre">Solana Pereyra</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/caslaffemenino/" target="_blank"><span class="club-link-icon">📸</span> San Lorenzo</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="florencia bonsegundo sporting club liga bpi portugal">
+          <td><span class="jugadora-nombre">Florencia Bonsegundo</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/sportingcpfutebolfeminino/" target="_blank"><span class="club-link-icon">📸</span> Sporting Club</a></td>
+          <td><span class="comp-tag">Liga BPI</span></td>
+          <td><span class="pais-tag">🇵🇹 Portugal</span></td>
+        </tr>
+        <tr data-search="aldana cometti bay fc nwsl eeuu">
+          <td><span class="jugadora-nombre">Aldana Cometti</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/wearebayfc/" target="_blank"><span class="club-link-icon">📸</span> Bay FC</a></td>
+          <td><span class="comp-tag">NWSL</span></td>
+          <td><span class="pais-tag">🇺🇸 EEUU</span></td>
+        </tr>
+        <tr data-search="kishi nuñez boca juniors torneo apertura argentina">
+          <td><span class="jugadora-nombre">Kishi Nuñez</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/bocajrsfutbolfemenino/" target="_blank"><span class="club-link-icon">📸</span> Boca Juniors</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="camila duarte river plate torneo apertura argentina">
+          <td><span class="jugadora-nombre">Camila Duarte</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/riverplate.fem/" target="_blank"><span class="club-link-icon">📸</span> River Plate</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="justina morcillo dux logroño liga f españa">
+          <td><span class="jugadora-nombre">Justina Morcillo</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/duxlogrono/" target="_blank"><span class="club-link-icon">📸</span> Dux Logroño</a></td>
+          <td><span class="comp-tag">Liga F Moeve</span></td>
+          <td><span class="pais-tag">🇪🇸 España</span></td>
+        </tr>
+        <tr data-search="agostina holzeier racing club torneo apertura argentina">
+          <td><span class="jugadora-nombre">Agostina Holzeier</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/racing.tita/" target="_blank"><span class="club-link-icon">📸</span> Racing Club</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="eliana stábile gimnasia esgrima la plata torneo apertura argentina">
+          <td><span class="jugadora-nombre">Eliana Stábile</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/femeninocge/" target="_blank"><span class="club-link-icon">📸</span> Gimnasia y Esgrima LP</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="vanina preininger sao paulo brasileirao brasil">
+          <td><span class="jugadora-nombre">Vanina Preininger</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/saopaulofc_fem/" target="_blank"><span class="club-link-icon">📸</span> Sao Paulo FC</a></td>
+          <td><span class="comp-tag">Brasileirão</span></td>
+          <td><span class="pais-tag">🇧🇷 Brasil</span></td>
+        </tr>
+        <tr data-search="catalina roggerone belgrano torneo apertura argentina">
+          <td><span class="jugadora-nombre">Catalina Roggerone</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/femeninobelgrano/" target="_blank"><span class="club-link-icon">📸</span> Belgrano</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="maricel pereyra sao paulo brasileirao brasil">
+          <td><span class="jugadora-nombre">Maricel Pereyra</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/saopaulofc_fem/" target="_blank"><span class="club-link-icon">📸</span> Sao Paulo FC</a></td>
+          <td><span class="comp-tag">Brasileirão</span></td>
+          <td><span class="pais-tag">🇧🇷 Brasil</span></td>
+        </tr>
+        <tr data-search="sophia braun spokane zephyr gainbridge super league eeuu">
+          <td><span class="jugadora-nombre">Sophia Braun</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/spokanezephyrfc/" target="_blank"><span class="club-link-icon">📸</span> Spokane Zephyr FC</a></td>
+          <td><span class="comp-tag">Gainbridge Super League</span></td>
+          <td><span class="pais-tag">🇺🇸 EEUU</span></td>
+        </tr>
+        <tr data-search="sofía domínguez fc basel frauen axa womens super league suiza">
+          <td><span class="jugadora-nombre">Sofía Domínguez</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/fcbasel1893frauen/" target="_blank"><span class="club-link-icon">📸</span> FC Basel Frauen</a></td>
+          <td><span class="comp-tag">AXA Women's Super League</span></td>
+          <td><span class="pais-tag">🇨🇭 Suiza</span></td>
+        </tr>
+        <tr data-search="daiana falfán dux logroño liga f españa">
+          <td><span class="jugadora-nombre">Daiana Falfán</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/duxlogrono/" target="_blank"><span class="club-link-icon">📸</span> Dux Logroño</a></td>
+          <td><span class="comp-tag">Liga F Moeve</span></td>
+          <td><span class="pais-tag">🇪🇸 España</span></td>
+        </tr>
+        <tr data-search="annika paz inter milan serie a femminile italia">
+          <td><span class="jugadora-nombre">Annika Paz</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/inter_women/" target="_blank"><span class="club-link-icon">📸</span> Inter de Milán</a></td>
+          <td><span class="comp-tag">Serie A Femminile</span></td>
+          <td><span class="pais-tag">🇮🇹 Italia</span></td>
+        </tr>
+        <tr data-search="martina de trecco red bull bragantino brasileirao brasil">
+          <td><span class="jugadora-nombre">Martina de Trecco</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/asbragantinas/" target="_blank"><span class="club-link-icon">📸</span> Red Bull Bragantino</a></td>
+          <td><span class="comp-tag">Brasileirão</span></td>
+          <td><span class="pais-tag">🇧🇷 Brasil</span></td>
+        </tr>
+        <tr data-search="margarita giménez dux logroño liga f españa">
+          <td><span class="jugadora-nombre">Margarita Giménez</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/duxlogrono/" target="_blank"><span class="club-link-icon">📸</span> Dux Logroño</a></td>
+          <td><span class="comp-tag">Liga F Moeve</span></td>
+          <td><span class="pais-tag">🇪🇸 España</span></td>
+        </tr>
+        <tr data-search="agustina vargas talleres torneo apertura argentina">
+          <td><span class="jugadora-nombre">Agustina Vargas</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/talleres.fem/" target="_blank"><span class="club-link-icon">📸</span> Talleres</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="lara esponda river plate torneo apertura argentina">
+          <td><span class="jugadora-nombre">Lara Esponda</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/riverplate.fem/" target="_blank"><span class="club-link-icon">📸</span> River Plate</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="paulina gramaglia cd tenerife liga f españa">
+          <td><span class="jugadora-nombre">Paulina Gramaglia</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/cdtenerifefem/" target="_blank"><span class="club-link-icon">📸</span> CD Tenerife</a></td>
+          <td><span class="comp-tag">Liga F Moeve</span></td>
+          <td><span class="pais-tag">🇪🇸 España</span></td>
+        </tr>
+        <tr data-search="abigail chaves fc nuremberg frauen bundesliga alemania">
+          <td><span class="jugadora-nombre">Abigail Chaves</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/clubfrauen/" target="_blank"><span class="club-link-icon">📸</span> FC Nürnberg</a></td>
+          <td><span class="comp-tag">Frauen Bundesliga</span></td>
+          <td><span class="pais-tag">🇩🇪 Alemania</span></td>
+        </tr>
+        <tr data-search="catalina ongaro dux logroño liga f españa">
+          <td><span class="jugadora-nombre">Catalina Ongaro</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/duxlogrono/" target="_blank"><span class="club-link-icon">📸</span> Dux Logroño</a></td>
+          <td><span class="comp-tag">Liga F Moeve</span></td>
+          <td><span class="pais-tag">🇪🇸 España</span></td>
+        </tr>
+        <tr data-search="adriana sachs racing club torneo apertura argentina">
+          <td><span class="jugadora-nombre">Adriana Sachs</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/racing.tita/" target="_blank"><span class="club-link-icon">📸</span> Racing Club</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="francisca altgelt river plate torneo apertura argentina">
+          <td><span class="jugadora-nombre">Francisca Altgelt</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/riverplate.fem/" target="_blank"><span class="club-link-icon">📸</span> River Plate</a></td>
+          <td><span class="comp-tag">Torneo Apertura</span></td>
+          <td><span class="pais-tag">🇦🇷 Argentina</span></td>
+        </tr>
+        <tr data-search="milagros martin dux logroño liga f españa">
+          <td><span class="jugadora-nombre">Milagros Martin</span></td>
+          <td><a class="club-link" href="https://www.instagram.com/duxlogrono/" target="_blank"><span class="club-link-icon">📸</span> Dux Logroño</a></td>
+          <td><span class="comp-tag">Liga F Moeve</span></td>
+          <td><span class="pais-tag">🇪🇸 España</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-title">DATA <em>FÚTBOL FEMENINO</em></div>
+  <p class="footer-sub">¿Tenés una consulta, corrección o querés ponerte en contacto?</p>
+  <a class="footer-cta" href="mailto:data.futbol.femenino@gmail.com">
+    ✉️ data.futbol.femenino@gmail.com
+  </a>
+  <p class="footer-copy">Temporada 2025 / 2026 · Actualizado Abril 2026</p>
+</footer>
+
+<script>
+// Estado de filtros activos
+const filtros = { estado:'todas', plat:'todas', region:'todas', tipo:'todas' };
+
+function setFiltro(grupo, val, btn) {
+  filtros[grupo] = val;
+  // actualizar estilos solo del grupo
+  document.querySelectorAll(`[data-grupo="${grupo}"]`).forEach(b => {
+    b.classList.remove('active','active-rosa','active-azul');
+  });
+  btn.classList.add('active');
+  aplicarFiltros();
+}
+
+function aplicarFiltros() {
+  const q = document.getElementById('searchComp').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('#grid-comp .card');
+  let visibles = 0;
+
+  cards.forEach(card => {
+    const nombre = (card.dataset.nombre || '').toLowerCase();
+    const matchSearch = !q || nombre.includes(q);
+    const matchEstado = filtros.estado === 'todas' || card.dataset.estado === filtros.estado;
+    const matchPlat   = filtros.plat   === 'todas' || card.dataset.plat   === filtros.plat;
+    const matchRegion = filtros.region === 'todas' || card.dataset.region === filtros.region;
+    const matchTipo   = filtros.tipo   === 'todas' || card.dataset.tipo   === filtros.tipo;
+
+    const mostrar = matchSearch && matchEstado && matchPlat && matchRegion && matchTipo;
+    card.classList.toggle('hidden', !mostrar);
+    if (mostrar) visibles++;
+  });
+
+  document.getElementById('no-results').classList.toggle('hidden', visibles > 0);
+}
+
+function filtrarJugadoras() {
+  const q = document.getElementById('searchJug').value.toLowerCase().trim();
+  document.querySelectorAll('#tbody-jug tr').forEach(row => {
+    const txt = (row.dataset.search || '').toLowerCase();
+    row.classList.toggle('hidden', q && !txt.includes(q));
+  });
+}
+</script>
+</body>
+</html>
